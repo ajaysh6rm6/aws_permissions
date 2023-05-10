@@ -1,0 +1,41 @@
+>>>>>> S3 bucket policy >>>>>>
+{
+    "Version": "2008-10-17",
+    "Id": "PolicyForCloudFrontPrivateContent",
+    "Statement": [
+        {
+            "Sid": "1",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity E2DA93YR0XAHAL"
+            },
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::diginxthlt-resources/*"
+        }
+    ]
+}
+
+
+>>>>>> Cross-origin resource sharing (CORS) >>>>>>
+[
+    {
+        "AllowedHeaders": [
+            "*"
+        ],
+        "AllowedMethods": [
+            "GET",
+            "PUT",
+            "POST",
+            "DELETE"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": [
+            "x-amz-server-side-encryption",
+            "x-amz-request-id",
+            "x-amz-id-2"
+        ],
+        "MaxAgeSeconds": 3000
+    }
+]
